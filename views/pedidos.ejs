@@ -1,4 +1,25 @@
-<%- include('partials/navbar.ejs') %>
 <%- include('partials/header.ejs') %>
+    <div class="app-container">
+        <!-- Sidebar -->
+        
+        <%- include('partials/sidebar.ejs') %>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- nav bar superior -->
+        <%- include('partials/navbar.ejs') %>
+            
+            <!-- conteudo do painel -->
+            <div class="container-fluid">
+        <h2 class="mb-1">Pedidos</h2>
+        <p class="text-muted mb-4">Gerencie todos os pedidos realizados no sistema.</p>
+        <div class="dashboard-card">
+            <p>Em breve: lista de pedidos com status, cliente e valor total.</p>
+        </div>
+    </div>
+        </div>
+    </div>
 
-<%- include('partials/footer.ejs') %>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -2,10 +2,25 @@ const express = require('express');
 const app = express();
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.render('index');
-    });
+// middleware para passar o currentpath para todas as rotas
+app.use((req, res, next) => {
+    res.locals.currentPath = req.path;
+    next();
+});
+
+// middleware para passar o res.locals para todas as rotas
+app.use((req, res, next) => {
+    res.locals.res = res;
+    next();
+});
+
+//rota inicial
+app.get("/", (req, res) => {
+    res.render("index", { title: "Painel do E-commerce" });
+  });
 
 // ROTA PRODUTOS
 app.get("/produtos/:produto?", (req, res) => {
@@ -30,9 +45,11 @@ app.get("/pedidos", (req, res) => {
     ]
     res.render('pedidos', {
         // Enviando o array de objetos para página
-        pedidos : pedidos
+        pedidos : pedidos,
+        title: "Pedidos",
     })
 })
+
 
 // ROTA CLIENTES
 app.get("/clientes", (req, res) => {
@@ -48,6 +65,11 @@ app.get("/clientes", (req, res) => {
         clientes : clientes
     })
 })
+
+//rota home.ejs
+app.get('/', (req, res) => {
+    res.render('home');
+});
 
 
 app.listen(3000, () => {

@@ -1,6 +1,204 @@
-<%- include('partials/navbar.ejs') %>
 <%- include('partials/header.ejs') %>
-    <h1>Sistema Loja</h1>
-    <p>Esse é um sistema de loja</p>
-    
-<%- include('partials/footer.ejs') %>
+    <div class="app-container">
+        <!-- Sidebar -->
+        
+        <%- include('partials/sidebar.ejs') %>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- nav bar superior -->
+        <%- include('partials/navbar.ejs') %>
+            
+            <!-- conteudo do painel -->
+            <div class="container-fluid">
+                <h2 class="mb-1">Painel do E-commerce</h2>
+                <p class="text-muted mb-4">O que está acontecendo em sua empresa agora
+
+                </p>
+                
+                <!-- Linha de status rapidos -->
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <div class="dashboard-card d-flex">
+                            <div class="d-flex align-items-center" style="background-color: #ecfdf5; padding: 10px; border-radius: 8px; margin-right: 15px;">
+                                <i class="bi bi-inbox text-success fs-4"></i>
+                            </div>
+                            <div>
+                                <div class="d-flex align-items-center">
+                                    <h6 class="mb-0">57 pedidos</h6>
+                                    <i class="bi bi-star-fill text-success ms-2 small"></i>
+                                </div>
+                                <p class="text-muted mb-0 small">Aguardando NF-e</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="dashboard-card d-flex">
+                            <div class="d-flex align-items-center" style="background-color: #fffbeb; padding: 10px; border-radius: 8px; margin-right: 15px;">
+                                <i class="bi bi-hourglass-split text-warning fs-4"></i>
+                            </div>
+                            <div>
+                                <div class="d-flex align-items-center">
+                                    <h6 class="mb-0">5 pedidos</h6>
+                                    <i class="bi bi-exclamation-diamond text-warning ms-2 small"></i>
+                                </div>
+                                <p class="text-muted mb-0 small">Em Transito</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="dashboard-card d-flex">
+                            <div class="d-flex align-items-center" style="background-color: #fef2f2; padding: 10px; border-radius: 8px; margin-right: 15px;">
+                                <i class="bi bi-exclamation-circle text-danger fs-4"></i>
+                            </div>
+                            <div>
+                                <div class="d-flex align-items-center">
+                                    <h6 class="mb-0">15 produtos</h6>
+                                    <i class="bi bi-x text-danger ms-2 small"></i>
+                                </div>
+                                <p class="text-muted mb-0 small">Sem Estoque</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Two large stats cards -->
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="dashboard-card">
+                            <div class="d-flex justify-content-between mb-4">
+                                <div>
+                                    <h5 class="mb-1">Total de Pedidos</h5>
+                                    <p class="text-muted small mb-0">na ultima semana</p>
+                                </div>
+                                <div>
+                                    <span class="badge badge-decline px-2 py-1 rounded-pill">-6.8%</span>
+                                </div>
+                            </div>
+                            <h3 class="mb-3">16,247</h3>
+                            
+                            <div class="bar-chart">
+                                <div class="chart-bar" style="height: 80%;"></div>
+                                <div class="chart-bar" style="height: 95%;"></div>
+                                <div class="chart-bar" style="height: 65%;"></div>
+                                <div class="chart-bar" style="height: 70%;"></div>
+                                <div class="chart-bar" style="height: 50%;"></div>
+                                <div class="chart-bar" style="height: 60%;"></div>
+                                <div class="chart-bar" style="height: 75%;"></div>
+                                <div class="chart-bar" style="height: 55%;"></div>
+                                <div class="chart-bar" style="height: 40%;"></div>
+                                <div class="chart-bar opacity-50" style="height: 50%;"></div>
+                                <div class="chart-bar opacity-50" style="height: 60%;"></div>
+                                <div class="chart-bar opacity-50" style="height: 70%;"></div>
+                            </div>
+                            
+                            <div class="d-flex mt-3">
+                                <div class="me-4">
+                                    <div class="d-flex align-items-center mb-1">
+                                        <div class="legend-color" style="background-color: var(--primary-color);"></div>
+                                        <span class="small">Completos</span>
+                                    </div>
+                                    <div class="fw-bold">52%</div>
+                                </div>
+                                <div>
+                                    <div class="d-flex align-items-center mb-1">
+                                        <div class="legend-color" style="background-color: #e5e7eb;"></div>
+                                        <span class="small">Aguardando pagamento</span>
+                                    </div>
+                                    <div class="fw-bold">48%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="dashboard-card">
+                            <div class="d-flex justify-content-between mb-4">
+                                <div>
+                                    <h5 class="mb-1">Novos Clientes</h5>
+                                    <p class="text-muted small mb-0">na ultima semana</p>
+                                </div>
+                                <div>
+                                    <span class="badge badge-growth px-2 py-1 rounded-pill">+26.5%</span>
+                                </div>
+                            </div>
+                            <h3 class="mb-3">356</h3>
+                            
+                            <svg viewBox="0 0 400 100" width="100%" height="100px" style="margin-bottom: 20px;">
+                                <path d="M 0,50 Q 40,60 80,35 Q 120,10 160,30 Q 200,50 240,25 Q 280,0 320,30 Q 360,60 400,20" 
+                                      fill="none" stroke="#3b82f6" stroke-width="2"/>
+                            </svg>
+                            
+                            <div class="d-flex justify-content-between">
+                                <span class="text-muted small">01 Abril</span>
+                                <span class="text-muted small">07 Abril</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sales Chart -->
+              
+                
+               
+                
+                <!-- Latest Reviews Table -->
+                <div class="dashboard-card">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                            <h5 class="mb-1">Latest reviews</h5>
+                            <p class="text-muted small mb-0">Payment received across all channels</p>
+                        </div>
+                        <div class="d-flex">
+                            <div class="input-group me-2">
+                                <span class="input-group-text bg-white border-end-0">
+                                    <i class="bi bi-search"></i>
+                                </span>
+                                <input type="text" class="form-control border-start-0" placeholder="Search">
+                            </div>
+                            <div class="dropdown">
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button">
+                                    All products
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox">
+                                        </div>
+                                    </th>
+                                    <th scope="col">PRODUCT <i class="bi bi-arrow-down-up ms-1"></i></th>
+                                    <th scope="col">CUSTOMER <i class="bi bi-arrow-down-up ms-1"></i></th>
+                                    <th scope="col">RATING <i class="bi bi-arrow-down-up ms-1"></i></th>
+                                    <th scope="col">REVIEW <i class="bi bi-arrow-down-up ms-1"></i></th>
+                                    <th scope="col">STATUS <i class="bi bi-arrow-down-up ms-1"></i></th>
+                                    <th scope="col">TIME <i class="bi bi-arrow-down-up ms-1"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Table rows would go here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="d-flex justify-content-end mt-3">
+                        <button class="btn btn-primary">
+                            Chat demo <i class="bi bi-chat-dots-fill ms-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
