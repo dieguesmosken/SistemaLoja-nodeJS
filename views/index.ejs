@@ -1,241 +1,220 @@
 <%- include('partials/header.ejs') %>
-    <div class="app-container">
-        <!-- Sidebar -->
-        
-        <%- include('partials/sidebar.ejs') %>
-        
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- nav bar superior -->
-        <%- include('partials/navbar.ejs') %>
-            
-            <!-- conteudo do painel -->
-            <div class="container-fluid">
-                <h2 class="mb-1">Painel do E-commerce</h2>
-                <p class="text-muted mb-4">O que está acontecendo em sua empresa agora
+<div class="app-container">
+  <!-- Sidebar -->
+  <%- include('partials/sidebar.ejs') %>
+  <div class="main-content">
+    <!-- nav bar superior -->
+    <%- include('partials/navbar.ejs') %>
 
-                </p>
-                
-                <!-- Linha de status rapidos -->
-                <div class="row mb-4">
-                    <div class="col-md-4">
-                        <div class="dashboard-card d-flex">
-                            <div class="d-flex align-items-center" style="background-color: #ecfdf5; padding: 10px; border-radius: 8px; margin-right: 15px;">
-                                <i class="bi bi-inbox text-success fs-4"></i>
-                            </div>
-                            <div>
-                                <div class="d-flex align-items-center">
-                                    <h6 class="mb-0">
-                                        <!-- mostra a quantidade de pedidos em que o status_pagamento é igual a 'Pendente' ou 'Falha' -->
-                                        <%= pedidos.filter(pedido => pedido.status_pagamento === 'Pendente' || pedido.status_pagamento === 'Falha').length %>
-                                        pedidos</h6>
-                                    <i class="bi bi-star-fill text-success ms-2 small"></i>
-                                </div>
-                                <p class="text-muted mb-0 small">Aguardando NF-e</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="dashboard-card d-flex">
-                            <div class="d-flex align-items-center" style="background-color: #fffbeb; padding: 10px; border-radius: 8px; margin-right: 15px;">
-                                <i class="bi bi-hourglass-split text-warning fs-4"></i>
-                            </div>
-                            <div>
-                                <div class="d-flex align-items-center">
-                                    <h6 class="mb-0">
-                                        <!-- mostra a quantidade de pedidos em que o status_envio é igual a 'Enviado' ou 'Pronto para retirada' -->
-                                        <%= pedidos.filter(pedido => pedido.status_envio === 'Enviado' || pedido.status_envio === 'Pronto para retirada').length %>
-                                        
-                                        pedidos</h6>
-                                    <i class="bi bi-exclamation-diamond text-warning ms-2 small"></i>
-                                </div>
-                                <p class="text-muted mb-0 small">Em Transito</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="dashboard-card d-flex">
-                            <div class="d-flex align-items-center" style="background-color: #fef2f2; padding: 10px; border-radius: 8px; margin-right: 15px;">
-                                <i class="bi bi-exclamation-circle text-danger fs-4"></i>
-                            </div>
-                            <div>
-                                <div class="d-flex align-items-center">
-                                    <h6 class="mb-0">
-                                        <!-- mostra a quantide de produtos com estoque zero -->
-                                        <%= produtos.filter(produto => produto.estoque === 0).length %> produtos
-                                    </h6>
-                                    <i class="bi bi-exclamation-triangle text-danger ms-2 small"></i>
-                                
-                                </div>
-                                <p class="text-muted mb-0 small">Sem Estoque</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-             
-                <div class="row mb-4">
-                    <div class="col-md-4">
-                        <div class="dashboard-card">
-                            <div class="d-flex justify-content-between mb-4" >
-                                <div>
-                                    <h5 class="mb-1">Total de Pedidos</h5>
-                                    <p class="text-muted small mb-0">na ultima semana</p>
-                                </div>
-                                <div>
-                                    <span class="badge badge-decline px-2 py-1 rounded-pill">-6.8%</span>
-                                </div>
-                            </div>
-                            <h3 class="mb-3">
-                                <!-- mostra a quantidade de pedidos em que o status_pagamento é diferente de 'Cancelado' -->
-                                <%= pedidos.filter(pedido => pedido.status_pagamento !== 'Cancelado').length %> pedidos
-                            </h3>
-                            
-                            <div class="bar-chart">
-                                <div class="chart-bar" style="height: 80%;"></div>
-                                <div class="chart-bar" style="height: 95%;"></div>
-                                <div class="chart-bar" style="height: 65%;"></div>
-                                <div class="chart-bar" style="height: 70%;"></div>
-                                <div class="chart-bar" style="height: 50%;"></div>
-                                <div class="chart-bar" style="height: 60%;"></div>
-                                <div class="chart-bar" style="height: 75%;"></div>
-                                <div class="chart-bar" style="height: 55%;"></div>
-                                <div class="chart-bar" style="height: 40%;"></div>
-                                <div class="chart-bar opacity-50" style="height: 50%;"></div>
-                                <div class="chart-bar opacity-50" style="height: 60%;"></div>
-                                <div class="chart-bar opacity-50" style="height: 70%;"></div>
-                            </div>
-                            
-                            <div class="d-flex mt-3">
-                                <div class="me-4">
-                                    <div class="d-flex align-items-center mb-1">
-                                        <div class="legend-color" style="background-color: var(--primary-color);"></div>
-                                        <span class="small">Completos</span>
-                                    </div>
-                                    <div class="fw-bold">
-                                        <!-- mostra a quantidade de pedidos em que o status_pagamento é igual a 'Pago' e o status_envio é igual a 'Entregue' em porcentagem -->
-                                        <%= ((pedidos.filter(pedido => pedido.status_pagamento === 'Pago' && pedido.status_envio === 'Entregue').length) / pedidos.length * 100).toFixed(2) %>%
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="d-flex align-items-center mb-1">
-                                        <div class="legend-color" style="background-color: #e5e7eb;"></div>
-                                        <span class="small">Aguardando pagamento</span>
-                                    </div>
-                                    <div class="fw-bold">
-                                        <!-- mostra a quantidade de pedidos em que o status_pagamento é igual a 'Pendente' ou 'Falha' em porcentagem -->
-                                        <%= ((pedidos.filter(pedido => pedido.status_pagamento === 'Pendente' || pedido.status_pagamento === 'Falha').length) / pedidos.length * 100).toFixed(2) %>%
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="dashboard-card">
-                            <div class="d-flex justify-content-between mb-4">
-                                <div>
-                                    <h5 class="mb-1">Total Clientes</h5>
-                                    <p class="text-muted small mb-0">A qualquer momento</p>
-                                </div>
-                                <div>
-                                    <span class="badge badge-growth px-2 py-1 rounded-pill">
-                                        <!-- mostra a quantidade de clientes em que o status_pagamento é diferente de 'Cancelado'-->
-                                        <%= pedidos.filter(pedido => pedido.status_pagamento !== 'Cancelado').length %> novos clientes  
-                                    </span>
-                                </div>
-                            </div>
-                            <h3 class="mb-3">
-                                <!-- mostra a quantidade total de clientes -->
-                                <%= clientes.length %> clientes
-                            </h3>
-                            
-                            <svg viewBox="0 0 400 100" width="100%" height="100px" style="margin-bottom: 20px;">
-                                <path d="M 0,50 Q 40,60 80,35 Q 120,10 160,30 Q 200,50 240,25 Q 280,0 320,30 Q 360,60 400,20" 
-                                      fill="none" stroke="#3b82f6" stroke-width="2"/>
-                            </svg>
-                            
-                            <div class="d-flex justify-content-between">
-                                <span class="text-muted small">01 Abril</span>
-                                <span class="text-muted small">07 Abril</span>
-                            </div>
-                        </div>
-                    </div>
+    <!-- conteudo do painel -->
+    <div class="container-fluid">
+      <h2 class="mb-1">Painel do E-commerce</h2>
+      <p class="text-muted mb-4">O que está acontecendo em sua empresa agora</p>
 
-                    <div class="col-md-4">
-                        <div class="dashboard-card">
-                            <!-- cria uma tabela que mostra a quantidade de pedidos por estado e quanto essa parcela representa em porcentagem do total de pedidos -->
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover table-sm">
-                                    <caption>Pedidos por Estado</caption>
-                                    <thead>
-                                        <tr>
-                                            <th>Estado</th>
-                                            <th>Quantidade</th>
-                                            <th>Porcentagem</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <!-- vai extrair a sigla do estado do cliente através da lista de cliente -->
-                                        <% const estados = {}; %>
-                                        <% pedidos.forEach(function(pedido) { %>
-                                            <% const cliente = clientes.find(c => c.nome === pedido.cliente); %>
-                                            <% if (cliente && cliente.endereco) { %>
-                                                <% const estado = cliente.endereco.split(',')[2].trim(); %>
-                                                <% if (estados[estado]) { %>
-                                                    <% estados[estado]++; %>
-                                                <% } else { %>
-                                                    <% estados[estado] = 1; %>
-                                                <% } %>
-                                            <% } %>
-                                        <% }); %>
-                                        <% for (const estado in estados) { %>
-                                            <tr>
-                                                <td><%= estado %></td>
-                                                <td><%= estados[estado] %></td>
-                                                <td><%= ((estados[estado] / pedidos.length) * 100).toFixed(2) %>%</td>
-                                            </tr>
-                                        <% } %>
-                                    </tbody>
-                                </table>
-
-                        </div>
-       
-                    </div>
+      <!-- Linha de status rápidos -->
+      <div class="row mb-4">
+        <div class="col-12 col-md-4">
+          <div class="dashboard-card d-flex alert alert-success">
+            <div class="d-flex align-items-center" style="background-color: #f0fdf4; padding: 10px; border-radius: 8px; width: 100%;">
+              <i class="bi bi-check-circle text-success fs-2" style="padding: 10px;"></i>
+              <div>
+                <div class="d-flex align-items-center">
+                  <h6 class="mb-0">
+                    <%= pedidos.filter(pedido => pedido.status_pagamento === 'Pendente' || pedido.status_pagamento === 'Falha').length %> pedidos
+                  </h6>
+                  <i class="bi bi-star-fill text-success ms-2 small"></i>
                 </div>
-                <div class="dashboard-card">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <div>
-                            <h5 class="mb-1">Ultimas Avaliações</h5>
-                            <p class="text-muted small mb-0">Mostrando Avaliações de todos os canais</p>
-                        </div>
-                        <div class="d-flex">
-                            <div class="input-group me-2">
-                                <span class="input-group-text bg-white border-end-0">
-                                    <i class="bi bi-search"></i>
-                                </span>
-                                <input type="text" class="form-control border-start-0" placeholder="Pesquisar">
-                            </div>
-                            
-                        </div>
-                    </div>
-                    
-                    <div class="table-responsive">
-                        <%- include('partials/avaliacoes.ejs') %>
-                    </div>
-                    
-                    <!-- <div class="d-flex justify-content-end mt-3">
-                        <button class="btn btn-primary" style="position: relative;">
-                            Chat<i class="bi bi-chat-dots-fill ms-2"></i>
-                        </button>
-                    </div> -->
-                </div>
+                <p class="text-muted mb-0 small">Aguardando NF-e</p>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+        <div class="col-12 col-md-4">
+          <div class="dashboard-card d-flex alert alert-warning">
+            <div class="d-flex align-items-center" style="background-color: #fefcbf; padding: 10px; border-radius: 8px; width: 100%;">
+              <i class="bi bi-truck text-warning fs-2" style="padding: 10px;"></i>
+              <div>
+                <div class="d-flex align-items-center">
+                  <h6 class="mb-0">
+                    <%= pedidos.filter(pedido => pedido.status_envio === 'Enviado' || pedido.status_envio === 'Pronto para retirada').length %> pedidos
+                  </h6>
+                  <i class="bi bi-exclamation-diamond text-warning ms-2 small"></i>
+                </div>
+                <p class="text-muted mb-0 small">Em Trânsito</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <div class="dashboard-card d-flex alert alert-danger">
+              <div class="d-flex align-items-center" style="background-color: #fef2f2; padding: 10px; border-radius: 8px; width: 100%;">
+                <i class="bi bi-exclamation-circle text-danger fs-2" style="padding: 10px;"></i>
+                <div>
+                  <div class="d-flex align-items-center">
+                    <h6 class="mb-0">
+                        <%= produtos.filter(produto => produto.estoque === 0).length %> produtos
+                    </h6>
+                    <i class="bi bi-exclamation-diamond text-danger ms-2 small"></i>
+                  </div>
+                  <p class="text-muted mb-0 small">Sem Estoque</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      </div>
+      <!-- Fim Linha de status rápidos -->
+
+      <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="dashboard-card" style="padding: 1.5rem; border-radius: 1rem; background: #fff; box-shadow: 0 0 10px rgba(0,0,0,0.05);"> 
+                <div class="d-flex justify-content-between mb-4">
+                  <div>
+                    <h5 class="mb-1">Total de Pedidos</h5>
+                    <p class="text-muted small mb-0">na última semana</p>
+                  </div>
+                  <div>
+                    <span class="badge badge-decline px-2 py-1 rounded-pill" style="background-color: #fee2e2; color: #dc2626;">
+                      -6.8%
+                    </span>
+                  </div>
+                </div>
+              
+                <h3 class="mb-3">
+                  <%= pedidos.length %> pedidos
+                </h3>  
+              
+                <div class="bar-chart d-flex">
+                  <div style="width: 34%; background-color: #3b82f6; transition: width 0.3s;"></div>
+                  <div style="width: 16%; background-color: #facc15; transition: width 0.3s;"></div>
+                  <div style="width: 50%; background-color: #0E44A2FF; transition: width 0.3s;"></div>
+                </div>
+              
+                <div class="d-flex mt-3">
+                  <div class="me-4">
+                    <div class="d-flex align-items-center mb-1">
+                      <div class="legend-color" style="width: 12px; height: 12px; border-radius: 2px; margin-right: 6px; background-color: #3b82f6;"></div>
+                      <span class="small">Completos</span>
+                    </div>
+                    <div class="fw-bold">
+                      <%= pedidos.filter(pedido => pedido.status_pagamento === 'Pago').length %> pedidos
+                    </div>
+                  </div>
+              
+                  <div class="me-4">
+                    <div class="d-flex align-items-center mb-1">
+                      <div class="legend-color" style="width: 12px; height: 12px; border-radius: 2px; margin-right: 6px; background-color: #facc15;"></div>
+                      <span class="small">Aguardando pagamento</span>
+                    </div>
+                    <div class="fw-bold">
+                      <%= pedidos.filter(pedido => pedido.status_pagamento === 'Pendente').length %> pedidos
+                    </div>
+                  </div>
+              
+                  <div>
+                    <div class="d-flex align-items-center mb-1">
+                      <div class="legend-color" style="width: 12px; height: 12px; border-radius: 2px; margin-right: 6px; background-color: #9ca3af;"></div>
+                      <span class="small">Outros</span>
+                    </div>
+                    <div class="fw-bold">
+                      <%= pedidos.filter(pedido => pedido.status_pagamento !== 'Pago' && pedido.status_pagamento !== 'Pendente').length %> pedidos
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="dashboard-card">
+            <div class="d-flex justify-content-between mb-4">
+              <div>
+                <h5 class="mb-1">Total Clientes</h5>
+                <p class="text-muted small mb-0">A qualquer momento</p>
+              </div>
+              <div>
+                <span class="badge badge-growth px-2 py-1 rounded-pill">
+                  <%= pedidos.filter(pedido => pedido.status_pagamento !== 'Cancelado').length %> novos clientes
+                </span>
+              </div>
+            </div>
+            <h3 class="mb-3">
+              <%= clientes.length %> clientes
+            </h3>
+
+            <svg viewBox="0 0 400 100" width="100%" height="100px" style="margin-bottom: 20px">
+              <path d="M 0,50 Q 40,60 80,35 Q 120,10 160,30 Q 200,50 240,25 Q 280,0 320,30 Q 360,60 400,20" fill="none" stroke="#3b82f6" stroke-width="2"/>
+            </svg>
+
+            <div class="d-flex justify-content-between">
+              <span class="text-muted small">01 Abril</span>
+              <span class="text-muted small">07 Abril</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="dashboard-card">
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered table-hover table-sm">
+                <caption>Pedidos por Estado</caption>
+                <thead>
+                  <tr>
+                    <th>Estado</th>
+                    <th>Quantidade</th>
+                    <th>Porcentagem</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% const estados = {}; %>
+                  <% pedidos.forEach(function(pedido) { %>
+                    <% const cliente = clientes.find(c => c.nome === pedido.cliente); %>
+                    <% if (cliente && cliente.endereco) { %>
+                      <% const estado = cliente.endereco.split(',')[2].trim(); %>
+                      <% if (estados[estado]) { %>
+                        <% estados[estado]++; %>
+                      <% } else { %>
+                        <% estados[estado] = 1; %>
+                      <% } %>
+                    <% } %>
+                  <% }); %>
+                  <% for (const estado in estados) { %>
+                    <tr>
+                      <td><%= estado %></td>
+                      <td><%= estados[estado] %></td>
+                      <td><%= ((estados[estado] / pedidos.length) * 100).toFixed(2) %> %</td>
+                    </tr>
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h5 class="mb-1">Últimas Avaliações</h5>
+            <p class="text-muted small mb-0">Mostrando Avaliações de todos os canais</p>
+          </div>
+          <div class="d-flex">
+            <div class="input-group me-2">
+              <span class="input-group-text bg-white border-end-0">
+                <i class="bi bi-search"></i>
+              </span>
+              <input type="text" class="form-control border-start-0" placeholder="Pesquisar"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <%- include('partials/avaliacoes.ejs') %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

@@ -1,59 +1,98 @@
 <%- include('partials/header.ejs') %>
-    <div class="app-container">
-        <!-- Sidebar -->
-        
-        <%- include('partials/sidebar.ejs') %>
-        
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- nav bar superior -->
-        <%- include('partials/navbar.ejs') %>
-            
-            <!-- conteudo do painel -->
-            <div class="container-fluid">
-        <h2 class="mb-1">Pedidos</h2>
-        <p class="text-muted mb-4">Gerencie todos os pedidos realizados no sistema.</p>
-        <div class="dashboard-card">
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>ID do Pedido</th>
-                            <th>Cliente</th>
-                            <th>Status Pagamento</th>
-                            <th>Status Envio</th>
-                            <th>Tipo de Entrega</th>
-                            <th>Data</th>
-                            <th>Valor Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% pedidos.forEach(function(pedido) { %>
-                        <tr>
-                            <!-- "pedido": "#2452",
-      "total": "R$36.320",
-      "cliente": "Milena Souza",
-      "status_pagamento": "Cancelado",
-      "status_envio": "Pronto para retirada",
-      "tipo_entrega": "Frete grátis",
-      "data": "9 de Dez, 14:28" -->
-                            <td><%= pedido.pedido %></td>
-                            <td><%= pedido.cliente %></td>
-                            <td><%= pedido.status_pagamento %></td>
-                            <td><%= pedido.status_envio %></td>
-                            <td><%= pedido.tipo_entrega %></td>
-                            <td><%= new Date(pedido.data).toLocaleDateString('pt-BR') %></td>
-                            <td><%= pedido.total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) %></td>
-                        </tr>
-                        <% }); %>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-        </div>
-    </div>
+<div class="app-container">
+  <!-- Sidebar -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+  <%- include('partials/sidebar.ejs') %>
+
+  <div class="main-content">
+    <%- include('partials/navbar.ejs') %>
+
+    <div class="container-fluid">
+      <!-- conteudo do painel -->
+      <div class="row mb-4">
+        <div class="col-md-2">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Pedidos Pagos</h5>
+              <p class="card-text"><%= statusCount.Pago %></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Pedidos Pendentes</h5>
+              <p class="card-text"><%= statusCount.Pendente %></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Pedidos Falhados</h5>
+              <p class="card-text"><%= statusCount.Falha %></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Pedidos Enviados</h5>
+              <p class="card-text"><%= statusCount.Enviado %></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Pedidos Entregues</h5>
+              <p class="card-text"><%= statusCount.Entregue %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="mb-1">Pedidos</h2>
+      <p class="text-muted mb-4">
+        Gerencie todos os pedidos realizados no sistema.
+      </p>
+      <div class="dashboard-card">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>ID do Pedido</th>
+                <th>Cliente</th>
+                <th>Status Pagamento</th>
+                <th>Status Envio</th>
+                <th>Tipo de Entrega</th>
+                <th>Data</th>
+                <th>Valor Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% pedidos.forEach(function(pedido) { %>
+              <tr>
+                <td><%= pedido.pedido %></td>
+                <td><%= pedido.cliente %></td>
+                <td><%= pedido.status_pagamento %></td>
+                <td><%= pedido.status_envio %></td>
+                <td><%= pedido.tipo_entrega %></td>
+                <td>
+                  <%= new Date(pedido.data).toLocaleDateString('pt-BR') %>
+                </td>
+                <td>
+                  <%= pedido.total.toLocaleString('pt-BR', { style: 'currency',
+                  currency: 'BRL' }) %>
+                </td>
+              </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer.ejs') %>
