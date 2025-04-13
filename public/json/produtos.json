@@ -1,0 +1,137 @@
+[
+    {
+        "nome": "Suporte de Celular Articulado",
+        "foto": "https://picsum.photos/20",
+        "dimensoes": "10x5x15",
+        "peso": "150g",
+        "descricao": "Suporte versátil para celular com articulação em várias posições.",
+        "valor": 39.9,
+        "estoque": 5
+    },
+    {
+        "nome": "Chaveiro Personalizado",
+        "foto": "https://picsum.photos/20",
+        "dimensoes": "3x1x5",
+        "peso": "30g",
+        "descricao": "Chaveiro estiloso com nome gravado a laser.",
+        "valor": 15.0,
+        "estoque": 0
+    },
+    {
+        "nome": "Display de LED",
+        "foto": "https://picsum.photos/20",
+        "dimensoes": "20x2x5",
+        "peso": "200g",
+        "descricao": "Display com iluminação LED para montagem de projetos eletrônicos.",
+        "valor": 120.0,
+        "estoque": 8
+    },
+    {
+        "nome": "Organizador de Cabos",
+        "foto": "https://picsum.photos/20",
+        "dimensoes": "12x4x3",
+        "peso": "100g",
+        "descricao": "Ideal para manter cabos organizados na mesa.",
+        "valor": 25.5,
+        "estoque": 0
+    },
+    {
+        "nome": "Case para Raspberry Pi",
+        "foto": "https://picsum.photos/20",
+        "dimensoes": "10x7x3",
+        "peso": "180g",
+        "descricao": "Case de proteção estiloso para sua Raspberry Pi.",
+        "valor": 48.0,
+        "estoque": 12
+    },
+    {
+        "nome": "Mini Suporte para Fones",
+        "foto": "https://picsum.photos/20",
+        "dimensoes": "5x5x5",
+        "peso": "60g",
+        "descricao": "Um mini suporte para deixar seus fones organizados.",
+        "valor": 22.9,
+        "estoque": 0
+    },
+    {
+        "nome": "Suporte para Headset",
+        "foto": "https://picsum.photos/20",
+        "dimensoes": "15x10x20",
+        "peso": "300g",
+        "descricao": "Suporte robusto para seu headset gamer ou de trabalho.",
+        "valor": 34.0,
+        "estoque": 10
+    },
+    {
+        "nome": "Enfeite Geek (Pokebola)",
+        "foto": "https://picsum.photos/20",
+        "dimensoes": "8x8x8",
+        "peso": "120g",
+        "descricao": "Pokebola decorativa para fãs de Pokémon.",
+        "valor": 18.5,
+        "estoque": 7
+    },
+    {
+        "nome": "Base para Controle PS5",
+        "foto": "https://picsum.photos/20",
+        "dimensoes": "18x8x5",
+        "peso": "250g",
+        "descricao": "Base para carregar e apoiar seu controle de PS5.",
+        "valor": 27.9,
+        "estoque": 0
+    },
+    {
+        "nome": "Letreiro Personalizado LED",
+        "foto": "https://picsum.photos/20",
+        "dimensoes": "25x5x8",
+        "peso": "350g",
+        "descricao": "Letreiro com LED e nome customizável.",
+        "valor": 99.0,
+        "estoque": 4
+    },
+    {
+        "nome": "Estação de Solda Suporte",
+        "foto": "https://picsum.photos/20",
+        "dimensoes": "15x10x12",
+        "peso": "400g",
+        "descricao": "Suporte para ferro de solda com esponja e suporte de carretel.",
+        "valor": 45.5,
+        "estoque": 6
+    },
+    {
+        "nome": "Porta Cartões de Visita",
+        "foto": "https://picsum.photos/20",
+        "dimensoes": "10x6x2",
+        "peso": "90g",
+        "descricao": "Organizador para cartões de visita de mesa.",
+        "valor": 19.9,
+        "estoque": 0
+    },
+    {
+        "nome": "Luminária USB Criativa",
+        "foto": "https://picsum.photos/20",
+        "dimensoes": "20x6x6",
+        "peso": "280g",
+        "descricao": "Luminária com entrada USB para decoração criativa.",
+        "valor": 55.0,
+        "estoque": 9
+    },
+    {
+        "nome": "Hub USB Customizado",
+        "foto": "https://picsum.photos/20",
+        "dimensoes": "12x4x2",
+        "peso": "150g",
+        "descricao": "Hub USB 4 portas com visual gamer.",
+        "valor": 70.0,
+        "estoque": 3
+    },
+    {
+        "nome": "Dock para Celular com Carga",
+        "foto": "https://picsum.photos/20",
+        "dimensoes": "14x10x7",
+        "peso": "200g",
+        "descricao": "Dock com carregamento integrado para celular.",
+        "valor": 42.0,
+        "estoque": 0
+    }
+]

@@ -1,0 +1,72 @@
+[
+{
+    "id": 1,
+    "nome_cliente": "Carlos Henrique",
+    "id_cliente": 1,
+    "nota": 4,
+    "data": "2025-03-03T00:00:00Z"
+  },
+  {
+    "id": 2,
+    "nome_cliente": "Milena Souza",
+    "id_cliente": 2,
+    "nota": 3,
+    "data": "2025-02-08T00:00:00Z"
+  },
+  {
+    "id": 3,
+    "nome_cliente": "João Pedro",
+    "id_cliente": 3,
+    "nota": 4,
+    "data": "2025-02-26T00:00:00Z"
+  },
+  {
+    "id": 4,
+    "nome_cliente": "Larissa Fernandes",
+    "id_cliente": 4,
+    "nota": 3,
+    "data": "2025-03-07T00:00:00Z"
+  },
+  {
+    "id": 5,
+    "nome_cliente": "Igor Batista",
+    "id_cliente": 5,
+    "nota": 4,
+    "data": "2025-03-18T00:00:00Z"
+  },
+  {
+    "id": 6,
+    "nome_cliente": "Kátia Ramos",
+    "id_cliente": 6,
+    "nota": 4,
+    "data": "2025-03-21T00:00:00Z"
+  },
+  {
+    "id": 7,
+    "nome_cliente": "Rodrigo Lima",
+    "id_cliente": 7,
+    "nota": 3,
+    "data": "2025-02-18T00:00:00Z"
+  },
+  {
+    "id": 8,
+    "nome_cliente": "Marina Rocha",
+    "id_cliente": 8,
+    "nota": 3,
+    "data": "2025-03-14T00:00:00Z"
+  },
+  {
+    "id": 9,
+    "nome_cliente": "Luís Fernando",
+    "id_cliente": 9,
+    "nota": 4,
+    "data": "2025-02-20T00:00:00Z"
+  },
+  {
+    "id": 10,
+    "nome_cliente": "Juliana Alves",
+    "id_cliente": 10,
+    "nota": 1,
+    "data": "2025-02-10T00:00:00Z"
+  }
+]

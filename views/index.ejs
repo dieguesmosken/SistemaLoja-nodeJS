@@ -25,7 +25,10 @@
                             </div>
                             <div>
                                 <div class="d-flex align-items-center">
-                                    <h6 class="mb-0">57 pedidos</h6>
+                                    <h6 class="mb-0">
+                                        <!-- mostra a quantidade de pedidos em que o status_pagamento é igual a 'Pendente' ou 'Falha' -->
+                                        <%= pedidos.filter(pedido => pedido.status_pagamento === 'Pendente' || pedido.status_pagamento === 'Falha').length %>
+                                        pedidos</h6>
                                     <i class="bi bi-star-fill text-success ms-2 small"></i>
                                 </div>
                                 <p class="text-muted mb-0 small">Aguardando NF-e</p>
@@ -40,7 +43,11 @@
                             </div>
                             <div>
                                 <div class="d-flex align-items-center">
-                                    <h6 class="mb-0">5 pedidos</h6>
+                                    <h6 class="mb-0">
+                                        <!-- mostra a quantidade de pedidos em que o status_envio é igual a 'Enviado' ou 'Pronto para retirada' -->
+                                        <%= pedidos.filter(pedido => pedido.status_envio === 'Enviado' || pedido.status_envio === 'Pronto para retirada').length %>
+                                        
+                                        pedidos</h6>
                                     <i class="bi bi-exclamation-diamond text-warning ms-2 small"></i>
                                 </div>
                                 <p class="text-muted mb-0 small">Em Transito</p>
@@ -55,8 +62,12 @@
                             </div>
                             <div>
                                 <div class="d-flex align-items-center">
-                                    <h6 class="mb-0">15 produtos</h6>
-                                    <i class="bi bi-x text-danger ms-2 small"></i>
+                                    <h6 class="mb-0">
+                                        <!-- mostra a quantide de produtos com estoque zero -->
+                                        <%= produtos.filter(produto => produto.estoque === 0).length %> produtos
+                                    </h6>
+                                    <i class="bi bi-exclamation-triangle text-danger ms-2 small"></i>
+                                
                                 </div>
                                 <p class="text-muted mb-0 small">Sem Estoque</p>
                             </div>
@@ -64,11 +75,11 @@
                     </div>
                 </div>
                 
-                <!-- Two large stats cards -->
+             
                 <div class="row mb-4">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="dashboard-card">
-                            <div class="d-flex justify-content-between mb-4">
+                            <div class="d-flex justify-content-between mb-4" >
                                 <div>
                                     <h5 class="mb-1">Total de Pedidos</h5>
                                     <p class="text-muted small mb-0">na ultima semana</p>
@@ -77,7 +88,10 @@
                                     <span class="badge badge-decline px-2 py-1 rounded-pill">-6.8%</span>
                                 </div>
                             </div>
-                            <h3 class="mb-3">16,247</h3>
+                            <h3 class="mb-3">
+                                <!-- mostra a quantidade de pedidos em que o status_pagamento é diferente de 'Cancelado' -->
+                                <%= pedidos.filter(pedido => pedido.status_pagamento !== 'Cancelado').length %> pedidos
+                            </h3>
                             
                             <div class="bar-chart">
                                 <div class="chart-bar" style="height: 80%;"></div>
@@ -100,31 +114,43 @@
                                         <div class="legend-color" style="background-color: var(--primary-color);"></div>
                                         <span class="small">Completos</span>
                                     </div>
-                                    <div class="fw-bold">52%</div>
+                                    <div class="fw-bold">
+                                        <!-- mostra a quantidade de pedidos em que o status_pagamento é igual a 'Pago' e o status_envio é igual a 'Entregue' em porcentagem -->
+                                        <%= ((pedidos.filter(pedido => pedido.status_pagamento === 'Pago' && pedido.status_envio === 'Entregue').length) / pedidos.length * 100).toFixed(2) %>%
+                                    </div>
                                 </div>
                                 <div>
                                     <div class="d-flex align-items-center mb-1">
                                         <div class="legend-color" style="background-color: #e5e7eb;"></div>
                                         <span class="small">Aguardando pagamento</span>
                                     </div>
-                                    <div class="fw-bold">48%</div>
+                                    <div class="fw-bold">
+                                        <!-- mostra a quantidade de pedidos em que o status_pagamento é igual a 'Pendente' ou 'Falha' em porcentagem -->
+                                        <%= ((pedidos.filter(pedido => pedido.status_pagamento === 'Pendente' || pedido.status_pagamento === 'Falha').length) / pedidos.length * 100).toFixed(2) %>%
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="dashboard-card">
                             <div class="d-flex justify-content-between mb-4">
                                 <div>
-                                    <h5 class="mb-1">Novos Clientes</h5>
-                                    <p class="text-muted small mb-0">na ultima semana</p>
+                                    <h5 class="mb-1">Total Clientes</h5>
+                                    <p class="text-muted small mb-0">A qualquer momento</p>
                                 </div>
                                 <div>
-                                    <span class="badge badge-growth px-2 py-1 rounded-pill">+26.5%</span>
+                                    <span class="badge badge-growth px-2 py-1 rounded-pill">
+                                        <!-- mostra a quantidade de clientes em que o status_pagamento é diferente de 'Cancelado'-->
+                                        <%= pedidos.filter(pedido => pedido.status_pagamento !== 'Cancelado').length %> novos clientes  
+                                    </span>
                                 </div>
                             </div>
-                            <h3 class="mb-3">356</h3>
+                            <h3 class="mb-3">
+                                <!-- mostra a quantidade total de clientes -->
+                                <%= clientes.length %> clientes
+                            </h3>
                             
                             <svg viewBox="0 0 400 100" width="100%" height="100px" style="margin-bottom: 20px;">
                                 <path d="M 0,50 Q 40,60 80,35 Q 120,10 160,30 Q 200,50 240,25 Q 280,0 320,30 Q 360,60 400,20" 
@@ -137,63 +163,74 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-md-4">
+                        <div class="dashboard-card">
+                            <!-- cria uma tabela que mostra a quantidade de pedidos por estado e quanto essa parcela representa em porcentagem do total de pedidos -->
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover table-sm">
+                                    <caption>Pedidos por Estado</caption>
+                                    <thead>
+                                        <tr>
+                                            <th>Estado</th>
+                                            <th>Quantidade</th>
+                                            <th>Porcentagem</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- vai extrair a sigla do estado do cliente através da lista de cliente -->
+                                        <% const estados = {}; %>
+                                        <% pedidos.forEach(function(pedido) { %>
+                                            <% const cliente = clientes.find(c => c.nome === pedido.cliente); %>
+                                            <% if (cliente && cliente.endereco) { %>
+                                                <% const estado = cliente.endereco.split(',')[2].trim(); %>
+                                                <% if (estados[estado]) { %>
+                                                    <% estados[estado]++; %>
+                                                <% } else { %>
+                                                    <% estados[estado] = 1; %>
+                                                <% } %>
+                                            <% } %>
+                                        <% }); %>
+                                        <% for (const estado in estados) { %>
+                                            <tr>
+                                                <td><%= estado %></td>
+                                                <td><%= estados[estado] %></td>
+                                                <td><%= ((estados[estado] / pedidos.length) * 100).toFixed(2) %>%</td>
+                                            </tr>
+                                        <% } %>
+                                    </tbody>
+                                </table>
+
+                        </div>
+       
+                    </div>
                 </div>
-                
-                <!-- Sales Chart -->
-              
-                
-               
-                
-                <!-- Latest Reviews Table -->
                 <div class="dashboard-card">
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <div>
-                            <h5 class="mb-1">Latest reviews</h5>
-                            <p class="text-muted small mb-0">Payment received across all channels</p>
+                            <h5 class="mb-1">Ultimas Avaliações</h5>
+                            <p class="text-muted small mb-0">Mostrando Avaliações de todos os canais</p>
                         </div>
                         <div class="d-flex">
                             <div class="input-group me-2">
                                 <span class="input-group-text bg-white border-end-0">
                                     <i class="bi bi-search"></i>
                                 </span>
-                                <input type="text" class="form-control border-start-0" placeholder="Search">
+                                <input type="text" class="form-control border-start-0" placeholder="Pesquisar">
                             </div>
-                            <div class="dropdown">
-                                <button class="btn btn-outline-secondary dropdown-toggle" type="button">
-                                    All products
-                                </button>
-                            </div>
+                            
                         </div>
                     </div>
                     
                     <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox">
-                                        </div>
-                                    </th>
-                                    <th scope="col">PRODUCT <i class="bi bi-arrow-down-up ms-1"></i></th>
-                                    <th scope="col">CUSTOMER <i class="bi bi-arrow-down-up ms-1"></i></th>
-                                    <th scope="col">RATING <i class="bi bi-arrow-down-up ms-1"></i></th>
-                                    <th scope="col">REVIEW <i class="bi bi-arrow-down-up ms-1"></i></th>
-                                    <th scope="col">STATUS <i class="bi bi-arrow-down-up ms-1"></i></th>
-                                    <th scope="col">TIME <i class="bi bi-arrow-down-up ms-1"></i></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Table rows would go here -->
-                            </tbody>
-                        </table>
+                        <%- include('partials/avaliacoes.ejs') %>
                     </div>
                     
-                    <div class="d-flex justify-content-end mt-3">
-                        <button class="btn btn-primary">
-                            Chat demo <i class="bi bi-chat-dots-fill ms-2"></i>
+                    <!-- <div class="d-flex justify-content-end mt-3">
+                        <button class="btn btn-primary" style="position: relative;">
+                            Chat<i class="bi bi-chat-dots-fill ms-2"></i>
                         </button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

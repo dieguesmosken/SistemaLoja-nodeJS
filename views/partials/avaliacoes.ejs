@@ -1,0 +1,29 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Usuário</th>
+            <th>Avaliação</th>
+            <th>Data</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% avaliacoes.forEach(function(avaliacao) { %>
+        <tr>
+            <td><%= avaliacao.id %></td>
+            <td><%= avaliacao.nome_cliente %></td>
+            <!-- <td><%= avaliacao.nota %></td> -->
+            <td>
+                <% for(let i = 1; i <= 5; i++) { %>
+                  <% if(i <= avaliacao.nota) { %>
+                    <i class="bi bi-star-fill text-warning"></i>
+                  <% } else { %>
+                    <i class="bi bi-star"></i>
+                  <% } %>
+                <% } %>
+              </td>
+            <td><%= new Date(avaliacao.data).toLocaleDateString('pt-BR') %></td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>

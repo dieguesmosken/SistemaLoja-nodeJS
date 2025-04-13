@@ -1,0 +1,24 @@
+<%- include('partials/header.ejs') %>
+    <div class="app-container">
+        <!-- Sidebar -->
+        
+        <%- include('partials/sidebar.ejs') %>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- nav bar superior -->
+        <%- include('partials/navbar.ejs') %>
+            
+            <!-- conteudo da pagina de avaliações dos usuarios-->
+            <div class="avaliacoes-container">
+                <h1>Avaliações dos Usuários</h1>
+                <%- include('partials/avaliacoes.ejs') %>
+            </div>
+            
+
+            
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

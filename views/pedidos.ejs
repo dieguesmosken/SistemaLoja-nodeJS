@@ -14,7 +14,41 @@
         <h2 class="mb-1">Pedidos</h2>
         <p class="text-muted mb-4">Gerencie todos os pedidos realizados no sistema.</p>
         <div class="dashboard-card">
-            <p>Em breve: lista de pedidos com status, cliente e valor total.</p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID do Pedido</th>
+                            <th>Cliente</th>
+                            <th>Status Pagamento</th>
+                            <th>Status Envio</th>
+                            <th>Tipo de Entrega</th>
+                            <th>Data</th>
+                            <th>Valor Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% pedidos.forEach(function(pedido) { %>
+                        <tr>
+                            <!-- "pedido": "#2452",
+      "total": "R$36.320",
+      "cliente": "Milena Souza",
+      "status_pagamento": "Cancelado",
+      "status_envio": "Pronto para retirada",
+      "tipo_entrega": "Frete grátis",
+      "data": "9 de Dez, 14:28" -->
+                            <td><%= pedido.pedido %></td>
+                            <td><%= pedido.cliente %></td>
+                            <td><%= pedido.status_pagamento %></td>
+                            <td><%= pedido.status_envio %></td>
+                            <td><%= pedido.tipo_entrega %></td>
+                            <td><%= new Date(pedido.data).toLocaleDateString('pt-BR') %></td>
+                            <td><%= pedido.total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) %></td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
         </div>

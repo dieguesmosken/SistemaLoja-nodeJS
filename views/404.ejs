@@ -1,0 +1,28 @@
+<%- include('partials/header.ejs') %>
+    <div class="app-container">
+        <!-- Sidebar -->
+        
+        <%- include('partials/sidebar.ejs') %>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- nav bar superior -->
+        <%- include('partials/navbar.ejs') %>
+            
+            <!-- conteudo do painel 404 -->
+            <div class="container-fluid">
+                <h2 class="mb-1">Página não encontrada</h2>
+                <p class="text-muted mb-4">Desculpe, a página que você está procurando não existe.</p>
+                <div class="dashboard-card">
+                    <img src="https://picsum.photos/id/237/400" alt="404 Not Found" class="img-fluid mb-3 rounded" />
+                    <h3 class="mb-3">404 - Página não encontrada</h3>
+                    <p>Verifique o URL ou volte para o inicio</p>
+                    <a href="/" class="btn btn-primary">Voltar</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
