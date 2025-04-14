@@ -9,7 +9,6 @@ ele inclui funcionalidades como cadastro de produtos, gerenciamento de estoque e
 - **Node.js**: Plataforma de desenvolvimento.
 - **Express**: Framework para criação de APIs.
 
-
 ## Funcionalidades
 
 - Cadastro de produtos.
@@ -20,19 +19,24 @@ ele inclui funcionalidades como cadastro de produtos, gerenciamento de estoque e
 ## Como Executar o Projeto
 
 1. Clone o repositório:
+
     ```bash
     git clone https://github.com/dieguesmosken/SistemaLoja-nodeJS.git
     ```
+
 2. Instale as dependências:
+
     ```bash
     cd SistemaLoja-nodeJS
     npm install
     ```
 <!-- 3. Configure as variáveis de ambiente no arquivo `.env`. -->
 3. Inicie o servidor:
+
     ```bash
     npm start
     ```
+
 4. Acesse a API em `http://localhost:3000`.
 5. Utilize ferramentas como Postman ou Insomnia para testar os endpoints da API.
 
@@ -52,8 +56,6 @@ ele inclui funcionalidades como cadastro de produtos, gerenciamento de estoque e
 - **LICENSE**: Licença do projeto.
 - **README.md**: Documentação do projeto.
 - **package.json**: Gerenciador de pacotes e dependências do projeto.
-
-
 
 ## Contribuição
 
