@@ -5,10 +5,45 @@
     <div class="main-content">
         <!-- nav bar superior -->
         <%- include('../partials/navbar.ejs') %> 
+        <!-- pagina de cadastro de usuario -->
+        <div class="container my-5 bg-white rounded shadow p-4">
+            <h1 class="mb-4 text-dark fs-2">Cadastro de Usuário</h1>
+            <form action="/cadastro" method="POST" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" name="nome" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="senha" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="senha" name="senha" required>
+                </div>
+                <div class="mb-3">
+                    <label for="telefone" class="form-label">Telefone</label>
+                    <input type="text" class="form-control" id="telefone" name="telefone">
+                </div>
+                <div class="mb-3">
+                    <label for="endereco" class="form-label">Endereço</label>
+                    <input type="text" class="form-control" id="endereco" name="endereco">
+                </div>
+                <div class="mb-3">
+                    <label for="imgPerfil" class="form-label">Foto de Perfil</label>
+                    <input type="file" class="form-control-file" id="imgPerfil" name="imgPerfil">
+                </div>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </form>
+            <div class="mt-4">
+                <h5 class="text-danger">Atenção:</h5>
+                <p>Após o cadastro, você receberá um email de confirmação. Verifique sua caixa de entrada e siga as instruções para ativar sua conta.</p>   
+                <p>Se você já possui uma conta, faça login <a href="/login">aqui</a>.</p>
+
+            </div>
+            
            
-            <div class="">
-                
-            </div>   
+            
         </div>
     </div>
     <%- include('../partials/footer.ejs') %>
