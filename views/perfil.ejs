@@ -1,0 +1,48 @@
+<%- include('partials/header.ejs') %>
+<div class="app-container">
+    <!-- Sidebar -->    
+    <%- include('partials/sidebar.ejs') %>
+    <div class="main-content">
+        <!-- nav bar superior -->
+        <%- include('partials/navbar.ejs') %> 
+        <!-- conteudo da pagina de perfil-->
+        <div class="container my-5 bg-white rounded shadow p-4 text-center">
+            <h1 class="mb-4 text-dark fs-2">Perfil do Usuário</h1>
+            <div class="mb-4">
+                <% if (usuarios.img) { %>
+                    <img src="<%= usuarios.img %>" alt="Foto de Perfil" class="rounded-circle border border-primary mb-3 shadow" style="width: 120px; height: 120px; object-fit: cover;">
+                <% } else { %>
+                    <img src="https://www.teuzin.com.br/v2/assets/user1.png" alt="Foto de Perfil" class="rounded-circle border border-primary mb-3 shadow" style="width: 120px; height: 120px; object-fit: cover;">
+                <% } %>
+                <div class="bg-light rounded p-3 mb-3">
+                    <label for="nome" class="fw-bold text-primary mb-1 d-block">Nome</label>
+                    <span id="nome" class="text-dark fs-5"><%= usuarios.nome %></span>
+                </div>
+                <div class="bg-light rounded p-3 mb-3">
+                    <label for="email" class="fw-bold text-primary mb-1 d-block">Email</label>
+                    <span id="email" class="text-dark fs-5"><%= usuarios.email %></span>
+                </div>
+                <div class="bg-light rounded p-3 mb-3">
+                    <label for="telefone" class="fw-bold text-primary mb-1 d-block">Telefone</label>
+                    <span id="telefone" class="text-dark fs-5"><%= usuarios.telefone %></span>
+                </div>
+                <div class="bg-light rounded p-3 mb-3">
+                    <label for="endereco" class="fw-bold text-primary mb-1 d-block">Endereço</label>
+                    <span id="endereco" class="text-dark fs-5"><%= usuarios.endereco || 'Não informado' %></span>
+                </div>
+                <div class="bg-light rounded p-3 mb-3">
+                    <label for="data-cadastro" class="fw-bold text-primary mb-1 d-block">Data de Cadastro</label>
+                    <span id="data-cadastro" class="text-dark fs-5">
+                        <%= usuarios.dataCadastro ? usuarios.dataCadastro.toLocaleDateString('pt-BR') : 'Não informado' %>
+                    </span>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
+                <a href="/editar-perfil" class="btn btn-primary rounded-pill px-4 fw-bold">Editar Perfil</a>
+                <a href="/alterar-senha" class="btn btn-secondary rounded-pill px-4 fw-bold">Alterar Senha</a>
+                <a href="/logout" class="btn btn-danger rounded-pill px-4 fw-bold">Sair</a>
+            </div>
+        </div>   
+    </div>
+</div>
+<%- include('partials/footer.ejs') %>

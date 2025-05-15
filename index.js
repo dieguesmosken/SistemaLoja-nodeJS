@@ -15,6 +15,8 @@ import ClientesController from "./controllers/ClientesController.js";
 import PedidosController from "./controllers/PedidosController.js";
 import ProdutosController from "./controllers/ProdutosController.js";
 import AvaliacoesController from "./controllers/AvaliacoesController.js";
+import CadastroController from "./controllers/CadastroController.js";
+import UsuariosController from "./controllers/UsuariosController.js";
 
 // Importando o ejs para renderização de templates
 const app = express();
@@ -40,6 +42,8 @@ app.use("/", ClientesController);
 app.use("/", PedidosController);
 app.use("/", ProdutosController);
 app.use("/", AvaliacoesController);
+app.use("/", CadastroController);
+app.use("/", UsuariosController);
 
 // middleware para passar o title para todas as rotas
 app.use((req, res, next) => {

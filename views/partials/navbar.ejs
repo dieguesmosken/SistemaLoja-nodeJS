@@ -2,19 +2,13 @@
   <div class="container-fluid">
     <div class="d-flex">
         <a href="/" class="navbar-brand d-flex align-items-center">
-            <span class="logo-text">Classificação:</span>
-            <!-- mostra a nota da empresa com base na media das notas das avaliações -->
-            <span class="logo-rating ms-2">
-                <% for(let i = 1; i <= 5; i++) { %>
-                    <% if(i <= 4.5) { %>
-                      <i class="bi bi-star-fill text-warning"></i>
-                    <% } else { %>
-                      <i class="bi bi-star"></i>
-                    <% } %>
-                  <% } %>
-            </span>
+            <!-- <img src="https://teuzin.com.br/assets/img/logo.png" alt="Logo" class="logo" /> -->
         </a>
     </div>
+    
+    <div class="d-flex justify-content-center align-items-center">
+      <!-- <h1 class="navbar-title">Teuzin.com.br</h1> -->
+      </div>  
     <div class="d-flex align-items-center">
       <div class="top-nav-icon">
         <i class="bi bi-sun"></i>
@@ -31,7 +25,7 @@
       <div class="avatar ms-3">
         
         <a href="/perfil" class="d-flex align-items-center">
-          <img src="https://picsum.photos/id/237/40" alt="User Avatar" class="rounded-circle me-2" />
+          <img src="https://www.teuzin.com.br/v2/assets/user1.png" style="background-color:blueviolet;" alt="User Avatar" class="rounded-circle me-2" />
           <span>Usuario</span>
         </a>
       </div>
